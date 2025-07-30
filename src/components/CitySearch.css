@@ -1,0 +1,38 @@
+.search-form {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.city-input {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  min-width: 200px;
+}
+
+.city-input:focus {
+  outline: 2px solid #61dafb;
+}
+
+.search-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-form button:hover {
+  background-color: #21a0c4;
+}
+
+.search-form button:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+}
