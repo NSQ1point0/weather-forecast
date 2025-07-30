@@ -1,0 +1,130 @@
+{
+  "lat": 40.7128,
+  "lon": -74.0060,
+  "timezone": "America/New_York",
+  "timezone_offset": -18000,
+  "current": {
+    "dt": 1703097600,
+    "sunrise": 1703077200,
+    "sunset": 1703112000,
+    "temp": 15.5,
+    "feels_like": 12.3,
+    "pressure": 1013,
+    "humidity": 65,
+    "dew_point": 8.2,
+    "uvi": 2.1,
+    "clouds": 40,
+    "visibility": 10000,
+    "wind_speed": 3.2,
+    "wind_deg": 180,
+    "weather": [
+      {
+        "id": 802,
+        "main": "Clouds",
+        "description": "scattered clouds",
+        "icon": "03d",
+        "condition": "cloudy"
+      }
+    ]
+  },
+  "cities": {
+    "New York": {
+      "temp": 15.5,
+      "condition": "cloudy",
+      "wind_speed": 3.2,
+      "humidity": 65,
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "scattered clouds",
+          "icon": "03d"
+        }
+      ]
+    },
+    "London": {
+      "temp": 8.1,
+      "condition": "rainy",
+      "wind_speed": 5.7,
+      "humidity": 78,
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10d"
+        }
+      ]
+    },
+    "Tokyo": {
+      "temp": 22.3,
+      "condition": "sunny",
+      "wind_speed": 2.1,
+      "humidity": 45,
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "clear sky",
+          "icon": "01d"
+        }
+      ]
+    },
+    "Paris": {
+      "temp": 12.7,
+      "condition": "cloudy",
+      "wind_speed": 4.3,
+      "humidity": 72,
+      "weather": [
+        {
+          "id": 803,
+          "main": "Clouds",
+          "description": "broken clouds",
+          "icon": "04d"
+        }
+      ]
+    },
+    "Sydney": {
+      "temp": 28.9,
+      "condition": "sunny",
+      "wind_speed": 6.2,
+      "humidity": 38,
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "clear sky",
+          "icon": "01d"
+        }
+      ]
+    },
+    "Mumbai": {
+      "temp": 31.2,
+      "condition": "sunny",
+      "wind_speed": 4.8,
+      "humidity": 72,
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "clear sky",
+          "icon": "01d"
+        }
+      ]
+    },
+    "Chennai": {
+      "temp": 29.7,
+      "condition": "rainy",
+      "wind_speed": 6.1,
+      "humidity": 81,
+      "weather": [
+        {
+          "id": 501,
+          "main": "Rain",
+          "description": "moderate rain",
+          "icon": "10d"
+        }
+      ]
+    }
+  }
+}
