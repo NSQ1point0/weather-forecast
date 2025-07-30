@@ -27,7 +27,7 @@ function CitySearch({ onSearch, loading }) {
       setCity(searchedCity);
       setShowSuggestions(false); // Hide suggestions when recent is clicked
     }
-  }, [searchedCity]);
+  }, [searchedCity, city]);
 
   // Debounced search suggestions - only show when input is focused
   useEffect(() => {
@@ -93,6 +93,9 @@ function CitySearch({ onSearch, loading }) {
       case 'Escape':
         setShowSuggestions(false);
         setSelectedIndex(-1);
+        break;
+      default:
+        // No action needed for other keys
         break;
     }
   };
@@ -163,4 +166,5 @@ function CitySearch({ onSearch, loading }) {
 }
 
 export default CitySearch;
+
 
