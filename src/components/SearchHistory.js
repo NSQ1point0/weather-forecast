@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { selectFromHistory } from '../store/weatherSlice';
+import { selectFromHistoryAsync } from '../store/weatherSlice';
 
 function SearchHistory() {
   const dispatch = useDispatch();
   const { searchHistory } = useSelector(state => state.weather);
 
   const handleHistoryClick = (cityName) => {
-    dispatch(selectFromHistory(cityName));
+    dispatch(selectFromHistoryAsync(cityName));
   };
 
   if (searchHistory.length === 0) {
@@ -32,3 +32,5 @@ function SearchHistory() {
 }
 
 export default SearchHistory;
+
+

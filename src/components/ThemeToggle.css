@@ -17,14 +17,14 @@
 }
 
 .theme-toggle.dark {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: #222831;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
 }
 
 .theme-toggle.light {
-  background: rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #FAF1E6;
+  border: 1px solid rgba(254, 186, 23, 0.3);
   color: #333;
 }
 
@@ -50,3 +50,4 @@
     font-size: 1.2rem;
   }
 }
+
