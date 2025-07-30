@@ -20,14 +20,16 @@ function CitySearch({ onSearch, loading }) {
   const { searchedCity } = useSelector(state => state.weather);
   const inputRef = useRef(null);
   const suggestionsRef = useRef(null);
+  const lastSearchedCityRef = useRef('');
 
   // Update input when city is selected from history
   useEffect(() => {
-    if (searchedCity && searchedCity !== city) {
+    if (searchedCity && searchedCity !== lastSearchedCityRef.current) {
       setCity(searchedCity);
-      setShowSuggestions(false); // Hide suggestions when recent is clicked
+      setShowSuggestions(false);
+      lastSearchedCityRef.current = searchedCity;
     }
-  }, [searchedCity, city]);
+  }, [searchedCity]);
 
   // Debounced search suggestions - only show when input is focused
   useEffect(() => {
@@ -50,6 +52,7 @@ function CitySearch({ onSearch, loading }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (city.trim()) {
+      lastSearchedCityRef.current = city.trim();
       onSearch(city.trim());
       setShowSuggestions(false);
       setSelectedIndex(-1);
@@ -63,8 +66,9 @@ function CitySearch({ onSearch, loading }) {
 
   const handleSuggestionClick = (suggestion) => {
     setCity(suggestion);
-    setShowSuggestions(false); // Hide suggestions when clicked
+    setShowSuggestions(false);
     setSelectedIndex(-1);
+    lastSearchedCityRef.current = suggestion;
     onSearch(suggestion);
   };
 
@@ -166,5 +170,8 @@ function CitySearch({ onSearch, loading }) {
 }
 
 export default CitySearch;
+
+
+
 
 
