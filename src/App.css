@@ -1,52 +1,333 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.App.dark {
+  background: #000000;
+}
+
+.App.light {
+  background: #ffffff;
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: flex-start;
+  padding: 40px 20px;
+  transition: color 0.3s ease;
+}
+
+.App.dark .App-header {
   color: white;
-  padding: 20px;
+}
+
+.App.light .App-header {
+  color: #2d3436;
+}
+
+.App-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.App.dark .App-header h1 {
+  color: #fff;
+}
+
+.App.light .App-header h1 {
+  color: #2d3436;
 }
 
 .error {
   color: #ff6b6b;
-  background-color: rgba(255, 107, 107, 0.1);
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px 0;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(255, 107, 107, 0.05));
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin: 15px 0;
   font-size: 14px;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(255, 107, 107, 0.1);
 }
 
 .weather-card {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-  margin: 20px 0;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  border-radius: 20px;
+  margin: 30px 0;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.App.dark .weather-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.App.light .weather-card {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.weather-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.weather-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  box-shadow: 0 10px 20px rgba(253, 203, 110, 0.3);
 }
 
 .weather-card h2 {
-  margin-top: 0;
-  color: #61dafb;
-  text-transform: capitalize;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: color 0.3s ease;
+}
+
+.App.dark .weather-card h2 {
+  color: #fff;
+}
+
+.App.light .weather-card h2 {
+  color: #2d3436;
 }
 
 .weather-info {
   display: grid;
-  gap: 10px;
-  text-align: left;
-  font-size: 16px;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 25px;
 }
 
-.weather-info p {
+.weather-info-item {
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.App.dark .weather-info-item {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.App.light .weather-info-item {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.weather-info-item .label {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.App.dark .weather-info-item .label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.App.light .weather-info-item .label {
+  color: rgba(45, 52, 54, 0.8);
+}
+
+.weather-info-item .value {
+  font-size: 1.5rem;
+  font-weight: 600;
   margin: 0;
-  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.App.dark .weather-info-item .value {
+  color: #fff;
+}
+
+.App.light .weather-info-item .value {
+  color: #2d3436;
+}
+
+.outfit-suggestions {
+  text-align: left;
+  padding: 20px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.App.dark .outfit-suggestions {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.App.light .outfit-suggestions {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.outfit-suggestions h3 {
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.App.dark .outfit-suggestions h3 {
+  color: #fff;
+}
+
+.App.light .outfit-suggestions h3 {
+  color: #2d3436;
+}
+
+.outfit-suggestions ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.outfit-suggestions li {
+  padding: 12px 16px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border-left: 4px solid #ffeaa7;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.App.dark .outfit-suggestions li {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.App.light .outfit-suggestions li {
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(45, 52, 54, 0.95);
+}
+
+.outfit-suggestions li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.search-history {
+  margin: 20px 0;
+  max-width: 500px;
+  width: 100%;
+}
+
+.search-history h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.App.dark .search-history h3 {
+  color: #fff;
+}
+
+.App.light .search-history h3 {
+  color: #2d3436;
+}
+
+.history-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.history-item {
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border: none;
+  font-family: inherit;
+}
+
+.App.dark .history-item {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.App.light .history-item {
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(45, 52, 54, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.history-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.App.dark .history-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.App.light .history-item:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .App-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .weather-card {
+    margin: 20px 10px;
+    padding: 25px;
+  }
+  
+  .weather-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .weather-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .search-history {
+    margin: 15px 10px;
+  }
+  
+  .history-list {
+    gap: 8px;
+  }
+  
+  .history-item {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
 }
 
