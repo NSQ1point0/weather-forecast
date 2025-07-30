@@ -24,11 +24,16 @@ function CitySearch({ onSearch, loading }) {
 
   // Update input when city is selected from history
   useEffect(() => {
-    if (searchedCity && searchedCity !== lastSearchedCityRef.current) {
-      setCity(searchedCity);
-      setShowSuggestions(false);
-      lastSearchedCityRef.current = searchedCity;
-    }
+    // Use a timeout to check focus state after React updates
+    const timer = setTimeout(() => {
+      if (searchedCity && searchedCity !== lastSearchedCityRef.current && !document.activeElement?.classList.contains('city-input')) {
+        setCity(searchedCity);
+        setShowSuggestions(false);
+        lastSearchedCityRef.current = searchedCity;
+      }
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, [searchedCity]);
 
   // Debounced search suggestions - only show when input is focused
@@ -68,6 +73,7 @@ function CitySearch({ onSearch, loading }) {
     setCity(suggestion);
     setShowSuggestions(false);
     setSelectedIndex(-1);
+    setIsInputFocused(false); // Important: set focus to false
     lastSearchedCityRef.current = suggestion;
     onSearch(suggestion);
   };
@@ -106,6 +112,7 @@ function CitySearch({ onSearch, loading }) {
 
   const handleFocus = () => {
     setIsInputFocused(true);
+    // Immediately show suggestions if there's text
     if (city.length > 0) {
       const filtered = CITY_SUGGESTIONS.filter(suggestion =>
         suggestion.toLowerCase().includes(city.toLowerCase())
@@ -116,10 +123,10 @@ function CitySearch({ onSearch, loading }) {
   };
 
   const handleBlur = (e) => {
-    setIsInputFocused(false);
-    // Delay hiding suggestions to allow click events
+    // Don't immediately set focus to false, let suggestion click handle it
     setTimeout(() => {
       if (!suggestionsRef.current?.contains(document.activeElement)) {
+        setIsInputFocused(false);
         setShowSuggestions(false);
         setSelectedIndex(-1);
       }
@@ -170,6 +177,15 @@ function CitySearch({ onSearch, loading }) {
 }
 
 export default CitySearch;
+
+
+
+
+
+
+
+
+
 
 
 
